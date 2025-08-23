@@ -20,7 +20,7 @@ double cantidad = 50.75;
 numero = 45 -- variable sin especificar el tipo de variable.
 
 cantidad :: Double -- variable con su tipo de variable especificada.
-cantidad = 50
+cantidad = 50.75
 ```
 
 La sintaxis es otro punto que los hace diferentes, *Java* esta basado en *C-style*, el cual utiliza llaves **{}** para delimitar los bloques de código y punto y coma para finalizar una sentencia **;** , mientas que *Haskell* utiliza los espacios o tabulaciones para delimitar los bloques de código.
