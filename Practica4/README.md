@@ -1,6 +1,12 @@
-### Información de la Práctica 4
+# Información de la Práctica 4
 
-## Recursión First Steps
+## Objetivo de la práctica
+
+El objetivo de esta práctica es que el estudiante implemente sus propios tipos de dato y que las use en las funciones dentro de *Haskell*, ademas de importar módulos con funciones auxiliares que le ayudaran en la implementación de las funciones principales.
+
+Con esta práctica, el estudiante demostrara sus conocimientos en la implementación de tipos de datos, así como crear e importar módulos, estos conocimientos los adquirió mediante las clases de laboratorio.
+
+## Recursión First Steps (Practica 3)
 
 La recursión nos permite repetir varios procesos hasta llegar a un resultado, y se compone de un caso base y un caso recursivo, en el caso de la canción **El Pollito Pio**, la recursión se encuentra presente, pues sigue algunos procesos repetitivos.
 
@@ -29,3 +35,55 @@ Y este caso recursivo sigue ese orden para todos los animales que no son ninguno
 En ese caso el *tractor* llegaría a el caso recursivo, hasta llegar a el *pollito*, sin embargo eso no es lo que pasa en la canción, en la cual, cuando se llega a el *tracto* este aplasta a el *pollito* y termina la canción, es por esto mismo que lo determinamos como un caso base.
 
 De esta manera se aplica la recursión en la canción.
+
+## Actividades: Funciones Auxiliares
+
+Para poder implementar las funciones auxiliares tenemos que tener en cuenta que podemos representar un número natural como *Cero* y como *(S m)* basándonos en la definición recursiva de los naturales y que implementamos en el archivo *Aux*.
+
+```
+data Natural = Cero | S Natural deriving (Eq, Show)
+```
+
+### 1. suma_natural
+
+La función calcula la suma de dos números naturales, recibe dos números naturales y devuelve un número natural, y tiene un caso base y un caso recursivo.
+
+```
+suma_natural :: Natural -> Natural -> Natural
+```
+
+En el caso base, si el primer número es *Cero* y el segundo es un número natural cualquiera, la función devuelve como resultado el segundo número natural.
+
+```
+suma_natural Cero n = Cero
+```
+
+En el caso recursivo, recibimos *(S m)* y *n*, y devuelve como resultado la misma función *suma_natural* con los parámetros *m* y *(S n)*, es decir le quita un elemento a *(S m)* y le agrega un elemento a *n*.
+
+```
+suma_natural (S m) n = suma_natural m (S n)
+```
+
+### 2. multi_natural
+
+La función calcula la multiplicación de dos números naturales, recibe dos números naturales y devuelve un número natural, y tiene un caso base y un caso recursivo.
+
+```
+multi_natural :: Natural -> Natural -> Natural
+```
+
+En el caso base, si el primer número es *Cero* y el segundo es un número natural cualquiera, la función devuelve como resultado *Cero*.
+
+```
+multi_natural Cero n = Cero
+```
+
+En el caso recursivo, recibimos *(S m)* y *n* y devuelve como resultado la función *suma_natural* que tiene como parámetros *n* y la misma función *multi_natural* con parámetros *m* y *n*.
+
+```
+multi_natural (S m) n = suma_natural n (multi_natural m n)
+```
+
+## Tiempo requerido
+
+Un aproximado de 2 horas dedicadas a la implementación de las funciones, investigación y corrección de errores.
