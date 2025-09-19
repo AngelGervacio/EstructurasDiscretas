@@ -32,5 +32,5 @@ potenciaNat m (S n) = multi_natural m (potenciaNat m n)
    Uso: facNat (S(S(S Cero))) = S (S (S (S (S (S Cero)))))
 -}
 facNat :: Natural -> Natural
-facNat (S Cero) = (S Cero)
+facNat Cero = (S Cero)
 facNat (S n) = multi_natural (S n) (facNat n)
